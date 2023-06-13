@@ -16,6 +16,10 @@ const Clock = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const get12Hours = (date) => {
+    return (date.getHours() + 24) % 12 || 12;
+  };
+
   const twoDigits = (number) => {
     if (typeof number !== 'number') return number;
 
@@ -32,20 +36,8 @@ const Clock = () => {
       {twoDigits(previousTime.getHours()).map((digit, index) => (
         <FlipCard
           key={index}
-          previousTime={
-            twoDigits(
-              currentTime.getHours() > 12
-                ? currentTime.getHours() - 12
-                : currentTime.getHours()
-            )[index]
-          }
-          currentTime={
-            twoDigits(
-              currentTime.getHours() > 12
-                ? currentTime.getHours() - 12
-                : currentTime.getHours()
-            )[index]
-          }
+          previousTime={twoDigits(get12Hours(previousTime))[index]}
+          currentTime={twoDigits(get12Hours(currentTime))[index]}
         />
       ))}
       <span>:</span>
