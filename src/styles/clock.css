@@ -9,7 +9,7 @@
 }
 
 .clock > span {
-  margin: 0 1rem;
+  margin: 0 0.25rem;
 }
 
 .clock > .flip-card {
@@ -19,5 +19,6 @@
 @media (min-width: 768px) {
   .clock {
     font-size: 5.5rem;
+    margin: 0 1rem;
   }
 }
