@@ -26,22 +26,16 @@ const FlipCard = ({ previousTime, currentTime }) => {
     });
   }, [previousTime, currentTime, topFlipRef, bottomFlipRef]);
 
-  const twoDigits = (number) => {
-    if (typeof number !== 'number') return number;
-
-    return number > 9 ? number : '0' + number;
-  };
-
   return (
     <div className="flip-card">
-      <div className="top">{twoDigits(currentTime)}</div>
-      <div className="bottom">{twoDigits(previousTime)}</div>
+      <div className="top">{currentTime}</div>
+      <div className="bottom">{previousTime}</div>
 
       <div ref={topFlipRef} className="top-flip">
-        {twoDigits(previousTime)}
+        {previousTime}
       </div>
       <div ref={bottomFlipRef} className="bottom-flip">
-        {twoDigits(currentTime)}
+        {currentTime}
       </div>
     </div>
   );

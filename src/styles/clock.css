@@ -11,6 +11,10 @@
   margin: 0 0.5rem;
 }
 
+.clock > .flip-card {
+  margin: 0 0.25rem;
+}
+
 @media (min-width: 768px) {
   .clock {
     font-size: 6rem;

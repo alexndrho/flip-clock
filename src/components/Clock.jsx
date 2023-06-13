@@ -16,30 +16,45 @@ const Clock = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const twoDigits = (number) => {
+    if (typeof number !== 'number') return number;
+
+    const result = number > 9 ? number : '0' + number;
+
+    return result.toString().split('');
+  };
+
   return (
     <div className="clock">
-      <FlipCard
-        previousTime={
-          previousTime.getHours() > 12
-            ? previousTime.getHours() - 12
-            : previousTime.getHours()
-        }
-        currentTime={
-          previousTime.getHours() > 12
-            ? previousTime.getHours() - 12
-            : previousTime.getHours()
-        }
-      />
+      {twoDigits(previousTime.getHours()).map((digit, index) => (
+        <FlipCard
+          key={index}
+          previousTime={digit}
+          currentTime={
+            twoDigits(
+              currentTime.getHours() > 12
+                ? currentTime.getHours() - 12
+                : currentTime.getHours()
+            )[index]
+          }
+        />
+      ))}
       :
-      <FlipCard
-        previousTime={previousTime.getMinutes()}
-        currentTime={currentTime.getMinutes()}
-      />
+      {twoDigits(previousTime.getMinutes()).map((digit, index) => (
+        <FlipCard
+          key={index}
+          previousTime={digit}
+          currentTime={twoDigits(currentTime.getMinutes())[index]}
+        />
+      ))}
       :
-      <FlipCard
-        previousTime={previousTime.getSeconds()}
-        currentTime={currentTime.getSeconds()}
-      />
+      {twoDigits(previousTime.getSeconds()).map((digit, index) => (
+        <FlipCard
+          key={index}
+          previousTime={digit}
+          currentTime={twoDigits(currentTime.getSeconds())[index]}
+        />
+      ))}
       <FlipCard
         previousTime={previousTime.getHours() > 12 ? 'PM' : 'AM'}
         currentTime={currentTime.getHours() > 12 ? 'PM' : 'AM'}
