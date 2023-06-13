@@ -42,7 +42,7 @@ const Clock = () => {
           }
         />
       ))}
-      :
+      <span>:</span>
       {twoDigits(previousTime.getMinutes()).map((digit, index) => (
         <FlipCard
           key={index}
@@ -50,7 +50,7 @@ const Clock = () => {
           currentTime={twoDigits(currentTime.getMinutes())[index]}
         />
       ))}
-      :
+      <span>:</span>
       {twoDigits(previousTime.getSeconds()).map((digit, index) => (
         <FlipCard
           key={index}
