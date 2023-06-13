@@ -32,7 +32,13 @@ const Clock = () => {
       {twoDigits(previousTime.getHours()).map((digit, index) => (
         <FlipCard
           key={index}
-          previousTime={digit}
+          previousTime={
+            twoDigits(
+              currentTime.getHours() > 12
+                ? currentTime.getHours() - 12
+                : currentTime.getHours()
+            )[index]
+          }
           currentTime={
             twoDigits(
               currentTime.getHours() > 12
