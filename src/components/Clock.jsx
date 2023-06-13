@@ -56,8 +56,8 @@ const Clock = () => {
         />
       ))}
       <FlipCard
-        previousTime={previousTime.getHours() > 12 ? 'PM' : 'AM'}
-        currentTime={currentTime.getHours() > 12 ? 'PM' : 'AM'}
+        previousTime={previousTime.getHours() >= 12 ? 'PM' : 'AM'}
+        currentTime={currentTime.getHours() >= 12 ? 'PM' : 'AM'}
       />
     </div>
   );
