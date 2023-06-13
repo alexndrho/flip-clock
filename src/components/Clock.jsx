@@ -21,7 +21,10 @@ const Clock = () => {
 
     const result = number > 9 ? number : '0' + number;
 
-    return result.toString().split('');
+    return result
+      .toString()
+      .split('')
+      .map((digit) => parseInt(digit));
   };
 
   return (

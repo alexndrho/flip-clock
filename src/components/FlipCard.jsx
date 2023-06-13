@@ -43,13 +43,13 @@ const FlipCard = ({ previousTime, currentTime }) => {
 
 FlipCard.propTypes = {
   previousTime: PropTypes.oneOfType([
-    PropTypes.number.isRequired,
+    PropTypes.number,
     PropTypes.oneOf(['AM', 'PM']),
-  ]),
+  ]).isRequired,
   currentTime: PropTypes.oneOfType([
-    PropTypes.number.isRequired,
+    PropTypes.number,
     PropTypes.oneOf(['AM', 'PM']),
-  ]),
+  ]).isRequired,
 };
 
 export default FlipCard;
