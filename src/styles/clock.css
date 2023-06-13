@@ -1,0 +1,18 @@
+.clock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3rem;
+
+  color: #de4848;
+}
+
+.clock > * {
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .clock {
+    font-size: 6rem;
+  }
+}
