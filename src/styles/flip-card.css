@@ -8,20 +8,19 @@
 
   display: inline-flex;
   flex-direction: column;
+  perspective: 5em;
 }
 
 .flip-card > .top,
 .flip-card > .bottom,
-.flip-card .top-flip,
-.flip-card .bottom-flip {
-  width: 1.75em;
+.flip-card > .top-flip,
+.flip-card > .bottom-flip {
   height: 0.75em;
-  padding: 0.25em;
+  padding: 0.25em 0.3em;
   line-height: 1;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  perspective: 0.75em;
 }
 
 .top,
@@ -50,7 +49,7 @@
 
 @keyframes flip-top {
   100% {
-    transform: rotateX(90deg);
+    transform: rotateX(-90deg);
   }
 }
 
